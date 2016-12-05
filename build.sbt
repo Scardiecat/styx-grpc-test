@@ -33,6 +33,7 @@ val commonDockerSettings = Seq(
   dockerRepository := Some("magicmoose-docker-registry.bintray.io/scardiecat")
 )
 
+
 lazy val root = (project in file("."))
   .enablePlugins(BuildInfoPlugin, JavaAppPackaging,DockerPlugin, GitVersioning)
   .settings(
@@ -47,5 +48,11 @@ lazy val app = (project in file("app"))
   .settings(
     name := "styx-grpc-test-app",
     libraryDependencies ++= Dependencies.app,
-    commonSettings
+    commonSettings,
+    managedSourceDirectories in Compile += (target.value / "protobuf-generated"),
+    PB.targets in Compile := Seq(
+      scalapb.gen(grpc = true, flatPackage = true) -> (target.value / "protobuf-generated")
+    )
   )
+
+
