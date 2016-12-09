@@ -55,4 +55,4 @@ PB.targets in Compile := Seq(
   scalapb.gen(grpc = true, flatPackage = true) -> (target.value / "protobuf-generated")
 )
 
-
+mainClass in (Compile)  := Some("Server")
