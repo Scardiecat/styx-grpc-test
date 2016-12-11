@@ -2,6 +2,7 @@ import java.util.concurrent.{CountDownLatch, TimeUnit}
 
 import org.scardiecat.echo.grpc.EchoClient
 import org.scardiecat.styxgrpctest.echoservice.{Message, SendMessageRequest}
+import org.scardiecat.styxgrpctest.pongservice.{PongMessage, SendPingMessageRequest}
 
 import scala.util.{Failure, Success}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -14,9 +15,10 @@ object Client extends App{
   }
 
   var count = 500
-  val latch:CountDownLatch = new CountDownLatch(count)
+  val latch:CountDownLatch = new CountDownLatch(count*2)
   val channel = EchoClient.buildChannel(8443)
   val echoServiceStub = EchoClient.buildServiceStub(channel)
+  val pongServiceStub = EchoClient.buildPongServiceStub(channel)
 
   var x = 0
   var outp = 0
@@ -29,6 +31,22 @@ object Client extends App{
        .sendEcho(SendMessageRequest("hello"))
      sendMessage.onComplete {
        case Success(value: Message) => {
+         //println(s"Message received: $value")
+         outp = outp + 1
+         latch.countDown()
+         if (outp % 50000 == 0) {
+           println(s"$outp")
+         }
+       }
+       case Failure(e) => {
+         e.printStackTrace
+         latch.countDown()
+       }
+     }
+     val sendPongMessage = pongServiceStub
+       .sendPing(SendPingMessageRequest("Ho"))
+     sendPongMessage.onComplete {
+       case Success(value: PongMessage) => {
          //println(s"Message received: $value")
          outp = outp + 1
          latch.countDown()
