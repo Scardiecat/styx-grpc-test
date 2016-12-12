@@ -1,9 +1,9 @@
-package org.scardiecat.echo.services
+package org.scardiecat.styxgrpctest.services
 
 import java.util.UUID
 
 import io.grpc.Status
-import org.scardiecat.styxgrpctest.echoservice.{EchoServiceGrpc, Message, SendMessageRequest}
+import org.scardiecat.styxgrpctest.echoservice.v1.{EchoServiceGrpc, Message, SendMessageRequest}
 
 import scala.concurrent.Future
 

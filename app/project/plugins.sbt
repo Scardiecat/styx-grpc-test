@@ -10,4 +10,6 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.8.5")
 
 addSbtPlugin("com.thesamet" % "sbt-protoc" % "0.99.2")
 
+addSbtPlugin("com.artima.supersafe" % "sbtplugin" % "1.1.0")
+
 libraryDependencies += "com.trueaccord.scalapb" %% "compilerplugin" % "0.5.45"

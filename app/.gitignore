@@ -18,5 +18,6 @@ dist
 /.settings
 /.sbtserver
 
+src/main/protobuf/
     
 native/

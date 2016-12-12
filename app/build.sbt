@@ -55,4 +55,9 @@ PB.targets in Compile := Seq(
   scalapb.gen(grpc = true, flatPackage = true) -> (target.value / "protobuf-generated")
 )
 
+mainClass in (Compile)  := Some("Server")
 
+
+// Tests
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"

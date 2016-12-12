@@ -11,3 +11,4 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.8.5")
 addSbtPlugin("com.thesamet" % "sbt-protoc" % "0.99.2")
 
 libraryDependencies += "com.trueaccord.scalapb" %% "compilerplugin" % "0.5.45"
+//libraryDependencies += "com.github.scala-incubator.io" % "scala-io_2.10.2" % "0.4.2"
