@@ -84,3 +84,7 @@ initApi := {
 //    throw new IllegalStateException("frontend build failed!")
 //  }
 //}
+
+//Tests
+
+concurrentRestrictions in Global += Tags.limit(Tags.Test, 1)

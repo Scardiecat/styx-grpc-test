@@ -1,4 +1,4 @@
-package org.scardiecat.echo.services
+package org.scardiecat.styxgrpctest.services
 
 import java.util.UUID
 

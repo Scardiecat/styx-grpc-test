@@ -1,11 +1,13 @@
+package org.scardiecat.styxgrpctest
+
 import java.util.concurrent.{CountDownLatch, TimeUnit}
 
-import org.scardiecat.echo.grpc.EchoClient
+import scala.concurrent.ExecutionContext.Implicits.global
 import org.scardiecat.styxgrpctest.echoservice.{Message, SendMessageRequest}
+import org.scardiecat.styxgrpctest.grpc.EchoClient
 import org.scardiecat.styxgrpctest.pongservice.{PongMessage, SendPingMessageRequest}
 
 import scala.util.{Failure, Success}
-import scala.concurrent.ExecutionContext.Implicits.global
 
 object Client extends App{
   def time(f: => Unit)={

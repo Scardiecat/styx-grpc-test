@@ -1,4 +1,4 @@
-package org.scardiecat.echo.grpc
+package org.scardiecat.styxgrpctest.grpc
 
 import io.grpc.internal.ServerImpl
 import io.grpc.netty.NettyServerBuilder

@@ -56,3 +56,8 @@ PB.targets in Compile := Seq(
 )
 
 mainClass in (Compile)  := Some("Server")
+
+
+// Tests
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"

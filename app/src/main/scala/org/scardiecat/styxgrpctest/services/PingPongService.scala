@@ -1,4 +1,4 @@
-package org.scardiecat.echo.services
+package org.scardiecat.styxgrpctest.services
 
 import java.util.UUID
 
@@ -11,6 +11,6 @@ import scala.concurrent.Future
   */
 class PingPongService extends PongServiceGrpc.PongService{
   override def sendPing(request: SendPingMessageRequest): Future[PongMessage] = {
-    Future.successful(PongMessage(UUID.randomUUID().toString, "1", request.content))
+    Future.successful(PongMessage(UUID.randomUUID().toString, "1", "pong"))
   }
 }
