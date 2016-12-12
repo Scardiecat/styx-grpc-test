@@ -2,7 +2,7 @@ package org.scardiecat.styxgrpctest.services
 
 import org.scardiecat.echo.BaseSpec
 import org.scardiecat.styxgrpctest.grpc.EchoClient
-import org.scardiecat.styxgrpctest.pongservice.SendPingMessageRequest
+import org.scardiecat.styxgrpctest.pongservice.v1.SendPingMessageRequest
 
 /**
   * Created by ralfmueller on 2016-12-11.

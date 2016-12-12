@@ -57,12 +57,19 @@ lazy val initApi = TaskKey[Unit]("initApi")
 initApi := {
   if( ("sh deleteAPICopy.sh" !) == 0) {
   }
+  print("checkout api")
+  if( ("sh getApi.sh" !) == 0) {
+  }
   println("copying api")
   println(dependedProjects.value)
   val target= "app/src/main/protobuf/"
-  createDir(Paths.get(target))
   for (dep <- dependedProjects.value) {
-    copyDir(Paths.get("styx-grpc-test-api", dep.projectName, dep.apiVersion), Paths.get(target, dep.projectName ))
+    createDir(Paths.get(target, dep.projectName))
+    copyDir(Paths.get("styx-grpc-test-api", dep.projectName, dep.apiVersion), Paths.get(target, dep.projectName, dep.apiVersion))
+  }
+
+  print("remove api")
+  if( ("sh removeApi.sh" !) == 0) {
   }
 }
 

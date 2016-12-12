@@ -2,8 +2,8 @@ package org.scardiecat.styxgrpctest.grpc
 
 import io.grpc.ManagedChannel
 import io.grpc.netty.{NegotiationType, NettyChannelBuilder}
-import org.scardiecat.styxgrpctest.echoservice.EchoServiceGrpc
-import org.scardiecat.styxgrpctest.pongservice.PongServiceGrpc
+import org.scardiecat.styxgrpctest.echoservice.v1.EchoServiceGrpc
+import org.scardiecat.styxgrpctest.pongservice.v1.PongServiceGrpc
 
 object EchoClient {
   def buildChannel(port:Int):ManagedChannel  = {

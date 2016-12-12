@@ -2,10 +2,10 @@ package org.scardiecat.styxgrpctest.grpc
 
 import io.grpc.internal.ServerImpl
 import io.grpc.netty.NettyServerBuilder
-import org.scardiecat.styxgrpctest.echoservice.EchoServiceGrpc
-import org.scardiecat.styxgrpctest.echoservice.EchoServiceGrpc.EchoService
-import org.scardiecat.styxgrpctest.pongservice.PongServiceGrpc
-import org.scardiecat.styxgrpctest.pongservice.PongServiceGrpc.PongService
+import org.scardiecat.styxgrpctest.echoservice.v1.EchoServiceGrpc
+import org.scardiecat.styxgrpctest.echoservice.v1.EchoServiceGrpc.EchoService
+import org.scardiecat.styxgrpctest.pongservice.v1.PongServiceGrpc
+import org.scardiecat.styxgrpctest.pongservice.v1.PongServiceGrpc.PongService
 
 import scala.concurrent.ExecutionContext
 

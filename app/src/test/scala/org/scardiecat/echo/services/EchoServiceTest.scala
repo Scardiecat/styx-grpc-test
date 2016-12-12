@@ -1,7 +1,7 @@
 package org.scardiecat.echo.services
 
 import org.scardiecat.echo.BaseSpec
-import org.scardiecat.styxgrpctest.echoservice.SendMessageRequest
+import org.scardiecat.styxgrpctest.echoservice.v1.SendMessageRequest
 import org.scardiecat.styxgrpctest.grpc.EchoClient
 
 /**

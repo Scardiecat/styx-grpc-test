@@ -3,9 +3,9 @@ package org.scardiecat.styxgrpctest
 import java.util.concurrent.{CountDownLatch, TimeUnit}
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import org.scardiecat.styxgrpctest.echoservice.{Message, SendMessageRequest}
+import org.scardiecat.styxgrpctest.echoservice.v1.{Message, SendMessageRequest}
 import org.scardiecat.styxgrpctest.grpc.EchoClient
-import org.scardiecat.styxgrpctest.pongservice.{PongMessage, SendPingMessageRequest}
+import org.scardiecat.styxgrpctest.pongservice.v1.{PongMessage, SendPingMessageRequest}
 
 import scala.util.{Failure, Success}
 
