@@ -2,6 +2,7 @@ enablePlugins(GitVersioning)
 enablePlugins(JavaAppPackaging)
 enablePlugins(BuildInfoPlugin)
 enablePlugins(GitVersioning)
+enablePlugins(DockerPlugin)
 
 
 organization := "org.scardiecat"
@@ -29,12 +30,12 @@ bintrayPackageLabels := Seq("styx", "scala", "grpc")
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
 
-val commonDockerSettings = Seq(
-  dockerBaseImage := "frolvlad/alpine-oraclejdk8",
-  dockerExposedPorts := Seq(2551),
-  maintainer in Docker := "Ralf Mueller <docker@scardiecat.org>",
-  dockerRepository := Some("magicmoose-docker-registry.bintray.io/scardiecat")
-)
+
+dockerBaseImage := "anapsix/alpine-java:8_jdk_unlimited"
+dockerExposedPorts := Seq(2551)
+maintainer in Docker := "Ralf Mueller <docker@scardiecat.org>"
+dockerRepository := Some("magicmoose-docker-registry.bintray.io/scardiecat")
+dockerExposedPorts := Seq(8443)
 
 
 name := """styx-grpc-test-app"""
@@ -55,7 +56,7 @@ PB.targets in Compile := Seq(
   scalapb.gen(grpc = true, flatPackage = true) -> (target.value / "protobuf-generated")
 )
 
-mainClass in (Compile)  := Some("Server")
+mainClass in (Compile)  := Some("org.scardiecat.styxgrpctest.Server")
 
 
 // Tests
